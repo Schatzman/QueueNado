@@ -22,7 +22,7 @@ fi
 BUILD="$1"
 
 
-# As version number we use the commit number on HEAD 
+# As version number we use the commit number on HEAD
 # we do not bother with other branches for now
 GIT_VERSION=`git rev-list --branches HEAD | wc -l`
 VERSION="1.$GIT_VERSION"
@@ -34,6 +34,7 @@ CWD=$PWD/$PACKAGE
 DISTDIR=$CWD/dist/$PACKAGE
 PATH=$PATH:/usr/local/probe/bin:$PATH
 
+sudo rm -rf ~/rpmbuild
 rpmdev-setuptree
 cp packaging/$PACKAGE.spec ~/rpmbuild/SPECS
 rm -f $PACKAGE-$VERSION.tar.gz
